@@ -30,13 +30,30 @@ jobs:
     - name: build dist
       run: python -m build
 
-    - name: Upload each file as separate artifact
-      run: |
-        for f in dist/*; do
-          name=$(basename "$f")
-          echo "Uploading $f as $name"
-          gh actions upload-artifact "$name" "$f"
-        done
+    - uses: actions/upload-artifact@v4
+      with:
+        name: build-files-temp
+        path: dist/*
+        if-no-files-found: error
+
+  upload-individual:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        file: ${{ fromJSON(needs.build.outputs.files) }}  # 这里动态生成文件列表
+    steps:
+      - name: Download temp artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-files-temp
+          path: build
+
+      - name: Upload single file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.file }}
+          path: build/${{ matrix.file }}
 
   release:
     name: Create GitHub Release
