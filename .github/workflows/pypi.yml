@@ -4,10 +4,10 @@ permissions:
   contents: write
   id-token: write
 
-on:
-  push:
-    tags:
-    - 20*
+# on:
+#   push:
+#     tags:
+#     - 20*
 
 jobs:
   build:
