@@ -30,6 +30,17 @@ jobs:
     - name: build dist
       run: python -m build
 
+
+    - name: Collect build file list
+      id: file_list
+      run: |
+        files=$(ls dist)
+        # 转换成 JSON 数组 ["file1.txt","file2.txt",...]
+        json_files=$(printf '"%s",' $files)
+        json_files="[${json_files%,}]"
+        echo "files=$json_files" >> $GITHUB_OUTPUT
+        echo "Generated JSON: $json_files"
+
     - uses: actions/upload-artifact@v4
       with:
         name: build-files-temp
