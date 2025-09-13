@@ -53,3 +53,13 @@
   <iconify-icon icon="simple-icons:linkedin"></iconify-icon>
 </a>
 {%- endif %}
+{%- if theme_portal_url %}
+<a href="{{ theme_portal_url }}" aria-label="Portal">
+<iconify-icon icon="tabler:home-filled"></iconify-icon>
+</a>
+{%- endif -%}
+{%- if theme_wiki_url %}
+<a href="{{ theme_wiki_url }}" aria-label="Wiki">
+<iconify-icon icon="tdesign:book-filled"></iconify-icon>
+</a>
+{%- endif -%}
