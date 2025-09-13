@@ -30,16 +30,13 @@ jobs:
     - name: build dist
       run: python -m build
 
-    - uses: actions/upload-artifact@v4
-      with:
-        name: build-artifacts
-        path: dist/*
-        if-no-files-found: error
-
-    - name: show artifact download link
+    - name: Upload each file as separate artifact
       run: |
-        echo "Artifacts will be available at:"
-        echo "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        for f in dist/*; do
+          name=$(basename "$f")
+          echo "Uploading $f as $name"
+          gh actions upload-artifact "$name" "$f"
+        done
 
   release:
     name: Create GitHub Release
@@ -64,12 +61,11 @@ jobs:
         draft: false
         prerelease: false
 
-    - name: Upload Release Assets
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: dist/*
-        asset_name: build-artifacts.zip
-        asset_content_type: application/zip
+    - name: Upload each file as release asset
+      run: |
+        for f in dist/*; do
+          name=$(basename "$f")
+          echo "Uploading $f as $name"
+          gh release upload "${{ steps.create_release.outputs.tag_name }}" "$f"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
