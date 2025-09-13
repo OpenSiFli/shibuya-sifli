@@ -1,0 +1,34 @@
+{%- if not theme_feedback_disabled %}
+
+<div class="sy-foot-feedback">
+   <p>
+      <a href="#" id="feedback-btn-link">{{ _("Submit Feedback") }}</a>
+   </p>   
+</div>
+
+<script>
+  var LANG_JS = {
+    unknownVersion: "{{ _('Unknown Version') }}",
+    page: "{{ _('Page') }}",
+    version: "{{ _('Version') }}",
+    feedbackPlaceholder: "{{ _('Please enter your feedback...') }}",
+    contactInfo: "{{ _('Please provide the following information if you would like us to contact you: ') }}",
+    nameLabel: "{{ _('Name') }}",
+    namePlaceholder: "{{ _('Your name') }}",
+    emailLabel: "{{ _('Email') }}",
+    emailPlaceholder: "{{ _('Your email') }}",
+    cancel: "{{ _('Cancel') }}",
+    submit: "{{ _('Submit') }}",
+    submitting: "{{ _('Submitting...') }}",
+    emptyFeedback: "{{ _('Please enter your feedback') }}",
+    incompleteInfo: "{{ _('Please provide both your name and email, or leave both blank.') }}",
+    invalidEmail: "{{ _('Please enter a valid email address') }}",
+    thankYou: "{{ _('Thank you for your feedback! We will process it as soon as possible.') }}",
+    submitFail: "{{ _('Submission failed, please try again later.') }}",
+    networkError: "{{ _('Network error, submission failed. Please try again later.') }}"
+  };
+</script>
+
+<script src="{{ pathto('_static/feedback.js', 1) }}" doc-version="{{ current_version }}"></script>
+
+{%- endif %}

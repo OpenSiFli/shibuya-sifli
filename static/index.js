@@ -7,6 +7,7 @@ import "./js/scroller"
 import "./js/repo-stats"
 import "./js/carbon"
 import "./js/rtd"
+import "./js/feedback"
 
 if (/windows/i.test(navigator.userAgent)) {
   document.body.classList.add('win')
