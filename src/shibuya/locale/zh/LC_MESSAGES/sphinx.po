@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-13 19:23+0800\n"
+"POT-Creation-Date: 2025-09-18 16:39+0800\n"
 "PO-Revision-Date: 2023-07-15 18:09+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -22,83 +22,81 @@ msgstr ""
 msgid "Back to top"
 msgstr "回到顶部"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:5
+#: src/shibuya/theme/shibuya/components/feedback.html:4
 msgid "Submit Feedback"
 msgstr "提交反馈"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:11
-#, fuzzy
+#: src/shibuya/theme/shibuya/components/feedback.html:8
 msgid "Unknown Version"
 msgstr "版本"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:12
+#: src/shibuya/theme/shibuya/components/feedback.html:9
 msgid "Page"
 msgstr "页面"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:13
-#, fuzzy
+#: src/shibuya/theme/shibuya/components/feedback.html:10
 msgid "Version"
 msgstr "版本"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:14
+#: src/shibuya/theme/shibuya/components/feedback.html:11
 msgid "Please enter your feedback..."
 msgstr "请输入您的反馈..."
 
-#: src/shibuya/theme/shibuya/components/feedback.html:15
+#: src/shibuya/theme/shibuya/components/feedback.html:12
 msgid ""
 "Please provide the following information if you would like us to contact "
 "you: "
 msgstr "如果您希望我们与您取得联系，请提供以下信息："
 
-#: src/shibuya/theme/shibuya/components/feedback.html:16
+#: src/shibuya/theme/shibuya/components/feedback.html:13
 msgid "Name"
 msgstr "姓名"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:17
+#: src/shibuya/theme/shibuya/components/feedback.html:14
 msgid "Your name"
 msgstr "您的姓名"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:18
+#: src/shibuya/theme/shibuya/components/feedback.html:15
 msgid "Email"
 msgstr "邮箱"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:19
+#: src/shibuya/theme/shibuya/components/feedback.html:16
 msgid "Your email"
 msgstr "您的邮箱"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:20
+#: src/shibuya/theme/shibuya/components/feedback.html:17
 msgid "Cancel"
 msgstr "取消"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:21
+#: src/shibuya/theme/shibuya/components/feedback.html:18
 msgid "Submit"
 msgstr "提交"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:22
+#: src/shibuya/theme/shibuya/components/feedback.html:19
 msgid "Submitting..."
 msgstr "提交中..."
 
-#: src/shibuya/theme/shibuya/components/feedback.html:23
+#: src/shibuya/theme/shibuya/components/feedback.html:20
 msgid "Please enter your feedback"
 msgstr "请填写反馈内容"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:24
+#: src/shibuya/theme/shibuya/components/feedback.html:21
 msgid "Please provide both your name and email, or leave both blank."
 msgstr "请同时填写您的姓名和邮箱，或者两者都留空"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:25
+#: src/shibuya/theme/shibuya/components/feedback.html:22
 msgid "Please enter a valid email address"
 msgstr "请输入有效的邮箱地址"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:26
+#: src/shibuya/theme/shibuya/components/feedback.html:23
 msgid "Thank you for your feedback! We will process it as soon as possible."
 msgstr "感谢您的反馈！我们会尽快处理。"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:27
+#: src/shibuya/theme/shibuya/components/feedback.html:24
 msgid "Submission failed, please try again later."
 msgstr "提交失败，请稍后重试。"
 
-#: src/shibuya/theme/shibuya/components/feedback.html:28
+#: src/shibuya/theme/shibuya/components/feedback.html:25
 msgid "Network error, submission failed. Please try again later."
 msgstr "网络异常，提交失败，请稍后再试。"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-13 19:23+0800\n"
+"POT-Creation-Date: 2025-09-18 16:39+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,81 +21,81 @@ msgstr ""
 msgid "Back to top"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:5
+#: src/shibuya/theme/shibuya/components/feedback.html:4
 msgid "Submit Feedback"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:11
+#: src/shibuya/theme/shibuya/components/feedback.html:8
 msgid "Unknown Version"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:12
+#: src/shibuya/theme/shibuya/components/feedback.html:9
 msgid "Page"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:13
+#: src/shibuya/theme/shibuya/components/feedback.html:10
 msgid "Version"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:14
+#: src/shibuya/theme/shibuya/components/feedback.html:11
 msgid "Please enter your feedback..."
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:15
+#: src/shibuya/theme/shibuya/components/feedback.html:12
 msgid ""
 "Please provide the following information if you would like us to contact "
 "you: "
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:16
+#: src/shibuya/theme/shibuya/components/feedback.html:13
 msgid "Name"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:17
+#: src/shibuya/theme/shibuya/components/feedback.html:14
 msgid "Your name"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:18
+#: src/shibuya/theme/shibuya/components/feedback.html:15
 msgid "Email"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:19
+#: src/shibuya/theme/shibuya/components/feedback.html:16
 msgid "Your email"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:20
+#: src/shibuya/theme/shibuya/components/feedback.html:17
 msgid "Cancel"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:21
+#: src/shibuya/theme/shibuya/components/feedback.html:18
 msgid "Submit"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:22
+#: src/shibuya/theme/shibuya/components/feedback.html:19
 msgid "Submitting..."
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:23
+#: src/shibuya/theme/shibuya/components/feedback.html:20
 msgid "Please enter your feedback"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:24
+#: src/shibuya/theme/shibuya/components/feedback.html:21
 msgid "Please provide both your name and email, or leave both blank."
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:25
+#: src/shibuya/theme/shibuya/components/feedback.html:22
 msgid "Please enter a valid email address"
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:26
+#: src/shibuya/theme/shibuya/components/feedback.html:23
 msgid "Thank you for your feedback! We will process it as soon as possible."
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:27
+#: src/shibuya/theme/shibuya/components/feedback.html:24
 msgid "Submission failed, please try again later."
 msgstr ""
 
-#: src/shibuya/theme/shibuya/components/feedback.html:28
+#: src/shibuya/theme/shibuya/components/feedback.html:25
 msgid "Network error, submission failed. Please try again later."
 msgstr ""
 
