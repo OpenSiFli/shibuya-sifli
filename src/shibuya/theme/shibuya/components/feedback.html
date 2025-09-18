@@ -1,11 +1,8 @@
 {%- if not theme_feedback_disabled %}
 
-<div class="sy-foot-feedback">
-   <p>
-      <a href="#" id="feedback-btn-link">{{ _("Submit Feedback") }}</a>
-   </p>   
-</div>
-
+<button id="feedback-btn-link" style="margin: 0 10px; padding: 5px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 14px;">
+    {{ _("Submit Feedback") }}
+</button>
 <script>
   var LANG_JS = {
     unknownVersion: "{{ _('Unknown Version') }}",
@@ -27,8 +24,7 @@
     submitFail: "{{ _('Submission failed, please try again later.') }}",
     networkError: "{{ _('Network error, submission failed. Please try again later.') }}"
   };
+  var docVersion = "{{ current_version }}";
 </script>
-
-<script src="{{ pathto('_static/feedback.js', 1) }}" doc-version="{{ current_version }}"></script>
 
 {%- endif %}

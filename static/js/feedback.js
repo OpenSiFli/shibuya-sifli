@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 获取版本号（如果有的话）
     const versionElement = document.querySelector('.shibuya-footer__version');
     const currentScript = document.currentScript || document.querySelector('script[src*="feedback.js"]');
-    const version = currentScript ? currentScript.getAttribute('doc-version') : LANG_JS.unknownVersion;
+    const version = docVersion;
 
     // 当前页面标题
     const pageTitle = document.title;
