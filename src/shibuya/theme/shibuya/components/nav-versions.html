@@ -7,12 +7,229 @@
     </button>
     <div class="nav-versions-choices">
       {%- if versions -%}
-      <ul>
+      <ul id="versionList">
         {%- for version in versions -%}
-          <li><a href="{{ version[1] }}">{{ version[0] }}</a></li>
+          <li data-version="{{ version[1] }}">{{ version[0] }}</li>
         {%- endfor -%}
       </ul>
       {%- endif -%}
     </div>
   </div>
 {%- endif -%}
+
+<style>
+  .nav-versions .nav-versions-choices {
+    min-width: 200px !important;
+    width: auto !important;
+  }
+  
+  .nav-versions .nav-versions-choices ul {
+    min-width: 200px !important;
+    width: auto !important;
+  }
+  
+  .nav-versions .nav-versions-choices li {
+    white-space: nowrap;
+    padding: 8px 16px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const versionList = document.getElementById('versionList');
+    const currentVersion = '{{ current_version }}'.toLowerCase();
+    let selectedVersion = currentVersion;
+
+    // 动态加载版本信息
+    async function loadVersions() {
+      try {
+        // 构建相对路径到version.json
+        // 假设URL结构为 /projects/project-name/{version}/
+        const currentPath = window.location.pathname;
+        const pathParts = currentPath.split('/');
+        const projectRoot = "/" + pathParts[1] + "/" + pathParts[2] + "/";
+        let versionJsonPath = projectRoot + 'version.json';
+        
+        console.log(`尝试从 ${versionJsonPath} 获取版本信息`);
+        
+        const response = await fetch(versionJsonPath);
+        if (response.ok) {
+          const versionData = await response.json();
+          updateVersionList(versionData);
+          console.log('成功获取版本信息');
+        } else {
+          console.warn('无法获取版本信息，HTTP状态:', response.status);
+        }
+      } catch (error) {
+        console.warn('无法获取远程版本信息，使用本地版本:', error);
+      }
+    }
+
+    // 更新版本列表
+    function updateVersionList(versionData) {
+      if (!versionList || !versionData || !Array.isArray(versionData)) return;
+      versionList.innerHTML = '';
+      
+      // 分离稳定版本和预发布版本
+      const stableVersions = [];
+      const preReleaseVersions = [];
+      
+      versionData.forEach(versionItem => {
+        if (versionItem.type === 'branch') {
+          preReleaseVersions.push(versionItem);
+        } else {
+          stableVersions.push(versionItem);
+        }
+      });
+      
+      // 对稳定版本排序（版本号从大到小）
+      stableVersions.sort((a, b) => {
+        return b.version.localeCompare(a.version, undefined, {numeric: true});
+      });
+      
+      // 对预发布版本排序（latest排第一，然后按版本号排序）
+      preReleaseVersions.sort((a, b) => {
+        if (a.version === 'latest') return -1;
+        if (b.version === 'latest') return 1;
+        if (a.version === 'master') return -1;
+        if (b.version === 'master') return 1;
+        return b.version.localeCompare(a.version, undefined, {numeric: true});
+      });
+
+      // 首先添加稳定版本
+      stableVersions.forEach(versionItem => {
+        const version = versionItem.version;
+        const li = document.createElement('li');
+        li.setAttribute('data-version', version);
+        li.textContent = version;
+        if (version === currentVersion) {
+          li.classList.add('selected');
+        }
+        versionList.appendChild(li);
+      });
+
+      // 如果有预发布版本，添加分隔线和标题
+      if (preReleaseVersions.length > 0) {
+        // 添加分隔线
+        const separator = document.createElement('li');
+        separator.className = 'version-separator';
+        separator.innerHTML = '<hr style="margin: 8px 0; border: none; border-top: 1px solid #e0e0e0;">';
+        versionList.appendChild(separator);
+        
+        // 添加预发布版本标题
+        const preReleaseTitle = document.createElement('li');
+        preReleaseTitle.className = 'version-category-title';
+        preReleaseTitle.textContent = 'Pre-Release Versions';
+        preReleaseTitle.style.cssText = 'color: #888; font-size: 0.75em; padding: 2px 12px; pointer-events: none; font-weight: 400; letter-spacing: 0.5px;';
+        versionList.appendChild(preReleaseTitle);
+        
+        // 添加预发布版本
+        preReleaseVersions.forEach(versionItem => {
+          const version = versionItem.version;
+          const li = document.createElement('li');
+          li.setAttribute('data-version', version);
+          li.textContent = version;
+          li.classList.add('pre-release-version');
+          if (version === currentVersion) {
+            li.classList.add('selected');
+          }
+          versionList.appendChild(li);
+        });
+      }
+
+      bindEvents();
+    }
+
+    // 绑定事件监听器
+    function bindEvents() {
+      if (versionList) {
+        versionList.addEventListener('click', function(event) {
+          if (event.target.tagName === 'LI' && 
+              !event.target.classList.contains('version-separator') && 
+              !event.target.classList.contains('version-category-title')) {
+            selectedVersion = event.target.getAttribute('data-version');
+            // 更新版本选择的视觉状态
+            versionList.querySelectorAll('li:not(.version-separator):not(.version-category-title)').forEach(li => li.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            // 根据新选择的版本更新芯片列表，并检查当前芯片是否仍然支持
+            loadVersionsAndUpdateChips(selectedVersion).then(() => {
+              // 导航到新页面
+              navigateToPage();
+            }).catch(error => {
+              console.warn('版本切换失败:', error);
+              // 即使芯片列表更新失败，仍然可以导航
+              navigateToPage();
+            });
+          }
+        });
+      }
+    }
+
+    // 加载版本信息并更新特定版本的芯片列表
+    async function loadVersionsAndUpdateChips(targetVersion) {
+      try {
+        const currentPath = window.location.pathname;
+        const pathParts = currentPath.split('/');
+        const projectRoot = "/" + pathParts[1] + "/" + pathParts[2] + "/";
+        let versionJsonPath = projectRoot + 'version.json';
+        
+        const response = await fetch(versionJsonPath);
+        if (response.ok) {
+          const versionData = await response.json();
+          if (Array.isArray(versionData)) {
+            return versionData;
+          } else {
+            throw new Error('版本数据格式不正确');
+          }
+        } else {
+          throw new Error(`HTTP ${response.status}`);
+        }
+      } catch (error) {
+        console.warn('无法更新芯片列表:', error);
+        throw error;
+      }
+    }
+
+    // 导航到新页面
+    function navigateToPage() {
+      if (selectedVersion) {
+        const currentUrl = window.location.href;
+        const urlParts = currentUrl.split('/');
+        
+        const versionIndex = urlParts.findIndex(part => part === currentVersion);
+        if (versionIndex !== -1) {
+          urlParts[versionIndex] = selectedVersion.toLowerCase();
+        }
+        
+        const newUrl = urlParts.join('/');
+        console.log(`导航从 ${currentUrl} 到 ${newUrl}`);
+        
+        if (newUrl !== currentUrl) {
+          window.location.href = newUrl;
+        }
+      } else {
+        console.warn('导航失败: 版本未选择', {selectedVersion});
+      }
+    }
+
+    // 初始化选中状态
+    function initializeSelection() {
+      if (versionList) {
+        const versionItems = versionList.querySelectorAll('li:not(.version-separator):not(.version-category-title)');
+        versionItems.forEach(item => {
+          item.classList.remove('selected');
+          if (item.getAttribute('data-version') === currentVersion) {
+            item.classList.add('selected');
+          }
+        });
+      }
+
+    }
+
+    // 初始化
+    initializeSelection();
+    bindEvents();
+    loadVersions();
+  });
+</script>

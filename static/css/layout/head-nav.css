@@ -111,3 +111,9 @@
     border-radius: 6px;
   }
 }
+
+.nav-versions li:hover {
+    background-color: var(--sy-c-surface); /* 设置鼠标悬停时的背景颜色 */
+    color: var(--sy-c-link-hover); /* 设置鼠标悬停时的文本颜色 */
+    cursor: pointer; /* 设置鼠标悬停时的指针样式 */
+}
