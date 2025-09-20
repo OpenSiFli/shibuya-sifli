@@ -2,8 +2,8 @@ name: Manual Build
 
 on:
   push:
-    branches:
-      - sifli
+    tags:
+    - 20*
   workflow_dispatch:
 
 jobs:
