@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-18 16:39+0800\n"
+"POT-Creation-Date: 2025-09-20 19:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,6 +97,26 @@ msgstr ""
 
 #: src/shibuya/theme/shibuya/components/feedback.html:25
 msgid "Network error, submission failed. Please try again later."
+msgstr ""
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:3
+#, python-format
+msgid "&#169; Copyright %(copyright)s."
+msgstr ""
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:7
+#, python-format
+msgid "Last updated on  %(last_updated)s."
+msgstr ""
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:14
+#, python-format
+msgid "Built with %(sphinx_web)s"
+msgstr ""
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:15
+#, python-format
+msgid ", theme is based on %(theme_web)s."
 msgstr ""
 
 #: src/shibuya/theme/shibuya/components/nav-languages.html:4

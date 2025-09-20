@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-09-18 16:39+0800\n"
+"POT-Creation-Date: 2025-09-20 19:04+0800\n"
 "PO-Revision-Date: 2023-07-15 18:09+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -99,6 +99,26 @@ msgstr "提交失败，请稍后重试。"
 #: src/shibuya/theme/shibuya/components/feedback.html:25
 msgid "Network error, submission failed. Please try again later."
 msgstr "网络异常，提交失败，请稍后再试。"
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:3
+#, python-format
+msgid "&#169; Copyright %(copyright)s."
+msgstr "&#169; 版权所有 %(copyright)s。"
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:7
+#, python-format
+msgid "Last updated on  %(last_updated)s."
+msgstr "最后更新时间 %(last_updated)s。"
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:14
+#, python-format
+msgid "Built with %(sphinx_web)s"
+msgstr "使用%(sphinx_web)s构建"
+
+#: src/shibuya/theme/shibuya/components/foot-copyright.html:15
+#, python-format
+msgid ", theme is based on %(theme_web)s."
+msgstr "，主题基于%(theme_web)s。"
 
 #: src/shibuya/theme/shibuya/components/nav-languages.html:4
 msgid "Translations"

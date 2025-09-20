@@ -1,12 +1,18 @@
 <div class="sy-foot-copyright">
   {%- if show_copyright -%}
-    <p>{{ copyright }}</p>
+     {% trans copyright=copyright|e %}&#169; Copyright {{ copyright }}.{% endtrans %}
   {% endif %}
-  <p>
-    Made with
-    {% if show_sphinx %}
-    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
-    {% endif %}
-    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  {%- if last_updated -%}
+  <p class="last-updated">
+    {% trans last_updated=last_updated|e %}Last updated on  {{ last_updated }}.{% endtrans %}
   </p>
+  {%- endif -%}
+  {% if show_sphinx %}
+  <p>
+    {%- set sphinx_web = '<a href="https://www.sphinx-doc.org/">Sphinx</a>' %}
+    {%- set theme_web = '<a href="https://shibuya.lepture.com">Shibuya</a>'  %}
+    {%- trans sphinx_web=sphinx_web %}Built with {{ sphinx_web }}{% endtrans %}
+    {%- trans theme_web=theme_web %}, theme is based on {{ theme_web }}.{% endtrans %}
+  </p>
+  {% endif %}
 </div>
