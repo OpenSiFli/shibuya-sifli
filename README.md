@@ -28,6 +28,11 @@ Install Shibuya theme with `pip`:
 pip install https://downloads.sifli.com/tools/shibuya/latest/shibuya-latest-py3-none-any.whl
 ```
 
+old version could be found in release page and link as below
+- [2024.12.21+sifli.5](https://downloads.sifli.com/tools/shibuya/2024.12.21+sifli.5/shibuya-2024.12.21+sifli.5-py3-none-any.whl)
+- [2024.12.21+sifli.4](https://downloads.sifli.com/tools/shibuya/2024.12.21+sifli.4/shibuya-2024.12.21+sifli.4-py3-none-any.whl)
+
+
 Add shibuya theme to your Sphinx `conf.py`:
 
 ```python
