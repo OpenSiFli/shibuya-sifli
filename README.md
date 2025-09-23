@@ -25,7 +25,7 @@ Shibuya, a beautiful, modern, and responsive theme for Sphinx documentation gene
 Install Shibuya theme with `pip`:
 
 ```
-pip install shibuya
+pip install https://downloads.sifli.com/tools/shibuya/latest/shibuya-latest-py3-none-any.whl
 ```
 
 Add shibuya theme to your Sphinx `conf.py`:
