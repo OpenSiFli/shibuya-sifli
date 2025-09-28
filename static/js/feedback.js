@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const pageTitle = document.title;
   
     popup.innerHTML = `
-      <div style="margin-bottom: 10px; font-size: 14px; color: #555;">
+      <div style="margin-bottom: 10px; font-size: 14px;">
         ${LANG_JS.page}：<strong>${pageTitle}</strong><br>
         ${LANG_JS.version}：<strong>${version}</strong>
       </div>
       <textarea id="feedback-text" placeholder="${LANG_JS.feedbackPlaceholder}" rows="6"></textarea>
-      <div style="margin-top: 20px; font-size: 13px; color: #333;">
+      <div style="margin-top: 20px; font-size: 13px;">
         ${LANG_JS.contactInfo}
       </div>
       <div class="flex-row" style="display: flex; gap: 20px; align-items: flex-start; margin-top: 8px;">
