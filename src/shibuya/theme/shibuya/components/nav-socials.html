@@ -25,6 +25,11 @@
     <iconify-icon icon="simple-icons:slack"></iconify-icon>
   </a>
 {%- endif %}
+{%- if theme_pdf_url %}
+<a href="{{ theme_pdf_url }}" aria-label="PDF">
+<iconify-icon icon="teenyicons:pdf-solid"></iconify-icon>
+</a>
+{%- endif -%}
 {%- if theme_portal_url %}
 <a href="{{ theme_portal_url }}" aria-label="Portal">
   <iconify-icon icon="tabler:home-filled"></iconify-icon>
